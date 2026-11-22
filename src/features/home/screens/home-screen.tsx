@@ -15,9 +15,16 @@ export function HomeScreen() {
             </View>
             <Text style={styles.brandName}>vanmo</Text>
           </View>
-          <View style={styles.profile}>
-            <Text style={styles.profileText}>TG</Text>
-          </View>
+          <Link href="/login" asChild>
+            <Pressable
+              accessibilityHint="Go to login page"
+              accessibilityLabel="Sign in"
+              accessibilityRole="button"
+              style={({ pressed }) => [styles.profile, pressed && styles.pressed]}
+            >
+              <Text style={styles.profileText}>Sign in</Text>
+            </Pressable>
+          </Link>
         </View>
 
         <View style={styles.hero}>
@@ -106,11 +113,11 @@ const styles = StyleSheet.create({
     letterSpacing: -0.8,
   },
   profile: {
-    width: 38,
-    height: 38,
+    height: 36,
+    paddingHorizontal: 14,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 19,
+    borderRadius: 18,
     backgroundColor: '#E8EBE8',
   },
   profileText: {
